@@ -1,0 +1,44 @@
+How to solve any binary tree coding problem
+
+The subtrees of a node are also considered as Trees so you can call the same function.
+![Alt text](image.png)
+
+1. Finding one or more base case
+2. Calling the same function on the left subtree.
+3. Calling the same function on the right subtree.
+4. Joining the results. 
+
+Note: you describe the final logic in the 4th step.
+
+Example 1 : Sum of tree
+
+public int sum(TreeNode root){
+    if(root==null){ -----> STEP 1.
+        return 0;
+    }
+    int lsum = sum(root.left); -----> STEP 2.
+    int rsum = sum(root.right); -----> STEP 3.
+    return root.val + lsum + rsum;  -----> STEP 4.
+}
+
+Example 2 : Maximum of Tree
+
+public int max(TreeNode root){
+    if(root==null){
+        return 0;
+    }
+    int lmax = max(root.left);
+    int rmax = max(root.right);
+    return Math.max(root.val, lmax, rmax);
+}
+
+Example 3 : Reverse a Binary Tree
+
+public void reverse(TreeNode root){
+    if(root==null){
+        return
+    }
+    reverse(root.left);
+    reverse(root.right);
+    swap(root.left, root.right);
+}
